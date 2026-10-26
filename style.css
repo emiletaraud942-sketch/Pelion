@@ -161,3 +161,11 @@ img,svg{max-width:100%;height:auto}
 
 .ac{fill:var(--accent)}
 .ac-s{stroke:var(--accent)}
+
+/* mentions légales */
+.legal{max-width:860px;margin:0 auto;padding:56px var(--gutter) 72px}
+.legal h2{margin:36px 0 10px;font-size:16px;letter-spacing:.14em;font-weight:600;text-transform:uppercase}
+.legal h2:first-child{margin-top:0}
+.legal p{margin:0;font-size:15px;line-height:1.7;color:#3a3a40}
+.legal .fine{margin-top:40px;font-size:13px;color:var(--muted)}
+.foot a{text-decoration:underline}
