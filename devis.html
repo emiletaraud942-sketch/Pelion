@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demande de devis — Pelion</title>
+<meta name="description" content="Décrivez votre besoin en logiciel métier, RH, comptabilité ou automatisation : Pelion revient vers vous avec une maquette et un devis.">
+<meta name="theme-color" content="#161618">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav solid">
+  <a class="logo" href="index.html" aria-label="Pelion, accueil">
+    <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path class="ac" d="M2 28 13 8l6 10 4-6 7 16z"/></svg>
+    PELION
+  </a>
+  <button class="burger" type="button" aria-expanded="false" aria-controls="menu">MENU</button>
+  <nav class="menu" id="menu">
+    <a href="index.html#services">SERVICES</a>
+    <a href="index.html#exemple">EXEMPLE</a>
+    <a href="index.html#methode">MÉTHODE</a>
+    <a href="index.html#equipe">ÉQUIPE</a>
+    <a class="btn small" href="devis.html">DEMANDER UN DEVIS</a>
+  </nav>
+</header>
+
+<section class="page-head">
+  <p class="eyebrow">DEMANDE DE DEVIS</p>
+  <h1>DÉCRIVEZ-NOUS VOTRE BESOIN, NOUS <span class="accent">REVENONS VERS VOUS</span></h1>
+</section>
+
+<main class="devis">
+  <div class="devis-in">
+    <form class="form" id="devis-form" data-email="">
+      <div class="grid2">
+        <label class="f">NOM *<input type="text" name="nom" autocomplete="name" required></label>
+        <label class="f">ENTREPRISE *<input type="text" name="entreprise" autocomplete="organization" required></label>
+        <label class="f">EMAIL *<input type="email" name="email" autocomplete="email" required></label>
+        <label class="f">TÉLÉPHONE<input type="tel" name="tel" autocomplete="tel"></label>
+      </div>
+
+      <fieldset>
+        <legend>VOTRE BESOIN</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="besoin" value="Logiciel métier"> Logiciel métier</label>
+          <label class="chip"><input type="checkbox" name="besoin" value="RH"> RH</label>
+          <label class="chip"><input type="checkbox" name="besoin" value="Comptabilité / facturation"> Comptabilité / facturation</label>
+          <label class="chip"><input type="checkbox" name="besoin" value="Automatisation"> Automatisation</label>
+          <label class="chip"><input type="checkbox" name="besoin" value="Pas encore défini"> Je ne sais pas encore</label>
+        </div>
+      </fieldset>
+
+      <label class="f">DÉCRIVEZ VOTRE SITUATION *
+        <textarea name="message" rows="6" placeholder="Ce qui vous prend du temps aujourd'hui, les outils que vous utilisez, ce que vous aimeriez changer…" required></textarea>
+      </label>
+
+      <div class="grid2">
+        <label class="f">TAILLE DE L'ENTREPRISE
+          <select name="taille"><option>Moins de 10 personnes</option><option>10 à 50 personnes</option><option>50 à 250 personnes</option><option>Plus de 250 personnes</option></select>
+        </label>
+        <label class="f">DÉLAI SOUHAITÉ
+          <select name="delai"><option>Le plus tôt possible</option><option>Dans les 3 mois</option><option>Pas de contrainte</option></select>
+        </label>
+      </div>
+
+      <p class="notice" id="notice" role="status" hidden></p>
+
+      <div class="send">
+        <button class="btn" type="submit">ENVOYER MA DEMANDE</button>
+        <small>Sans engagement. Vos informations ne sont utilisées que pour vous répondre.</small>
+      </div>
+    </form>
+
+    <aside class="aside">
+      <h2>ET ENSUITE ?</h2>
+      <div class="next">
+        <div><b>1</b><div><h3>NOUS VOUS RÉPONDONS</h3><p>Un des trois associés vous recontacte pour comprendre votre besoin. [DÉLAI À CONFIRMER]</p></div></div>
+        <div><b>2</b><div><h3>UNE MAQUETTE, UN DEVIS</h3><p>Vous voyez à quoi ressemblera l'outil et ce qu'il coûte, avant de vous décider.</p></div></div>
+        <div><b>3</b><div><h3>NOUS CONSTRUISONS</h3><p>Livraison par étapes, avec vous à chaque validation.</p></div></div>
+      </div>
+      <div class="direct">Vous préférez écrire directement ?<br><span>[ADRESSE EMAIL]</span> · <span>[TÉLÉPHONE]</span></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span class="logo"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path class="ac" d="M2 28 13 8l6 10 4-6 7 16z"/></svg>PELION</span>
+    <span>© <span id="y">2026</span> Pelion · Mentions légales</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

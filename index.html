@@ -5,154 +5,237 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pelion — Logiciels métier, RH, compta et automatisation</title>
 <meta name="description" content="Pelion conçoit des logiciels métier sur mesure, des outils RH et comptables et des automatisations pour les entreprises.">
-<meta name="theme-color" content="#0f1b2d">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1b2d'/%3E%3Cpath d='M4 25 13 9l5 8 3-4 7 12z' fill='%23f5a524'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#161618">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav" id="top">
-  <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="Pelion, accueil">
-      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M4 25 13 9l5 8 3-4 7 12z" fill="#f5a524"/></svg>
-      Pelion
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-bg" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path d="M0 760V520l180-110 160 80 220-190 200 160 170-120 240 170 160-110 110 80v380z" fill="#222226"/>
+    <path d="M0 760V610l240-90 180 70 260-150 220 150 190-90 350 120v140z" fill="#1c1c1f"/>
+  </svg>
+  <header class="nav">
+    <a class="logo" href="index.html" aria-label="Pelion, accueil">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path class="ac" d="M2 28 13 8l6 10 4-6 7 16z"/></svg>
+      PELION
     </a>
-    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-    <nav id="menu">
-      <a href="#services">Services</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#methode">Méthode</a>
-      <a href="#equipe">Équipe</a>
-      <a class="btn small" href="#contact">Nous contacter</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu">MENU</button>
+    <nav class="menu" id="menu">
+      <a href="#services">SERVICES</a>
+      <a href="#exemple">EXEMPLE</a>
+      <a href="#methode">MÉTHODE</a>
+      <a href="#equipe">ÉQUIPE</a>
+      <a class="btn small" href="devis.html">DEMANDER UN DEVIS</a>
     </nav>
+  </header>
+  <div class="hero-body">
+    <p class="eyebrow" style="margin-bottom:28px">LOGICIELS MÉTIER · RH · COMPTABILITÉ · AUTOMATISATION</p>
+    <h1>TOUTE TÂCHE RÉPÉTITIVE PEUT ÊTRE <span>AUTOMATISÉE</span></h1>
+    <p class="hero-lead">Trois associés qui conçoivent, pour les entreprises, les outils qui leur font gagner du temps. Sur mesure, simples à utiliser.</p>
+    <div class="hero-cta">
+      <a class="btn" href="devis.html">DEMANDER UN DEVIS</a>
+      <a class="btn ghost" href="#exemple">VOIR UN EXEMPLE</a>
+    </div>
   </div>
-</header>
+</section>
 
 <main>
-<section class="hero">
-  <div class="wrap hero-in">
-    <p class="eyebrow">Logiciels métier · RH · Comptabilité · Automatisation</p>
-    <h1>Les outils de votre entreprise, <em>faits pour elle.</em></h1>
-    <p class="lead">Nous sommes trois associés. Nous concevons des logiciels sur mesure et automatisons ce qui vous fait perdre du temps : plannings, paie, facturation, suivi de chantiers, relances…</p>
-    <div class="cta">
-      <a class="btn" href="#contact">Parlons de votre projet</a>
-      <a class="btn ghost" href="#realisations">Voir un exemple</a>
-    </div>
-    <ul class="proof">
-      <li><strong>3</strong> associés, un seul interlocuteur</li>
-      <li><strong>Sur mesure</strong> et non un logiciel générique</li>
-      <li><strong>Vos données</strong> restent chez vous</li>
-    </ul>
-  </div>
-  <svg class="mount" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 220V150l180-70 150 60 200-110 190 120 150-70 220 90 150-60 200 60v50z" fill="#f5a524" opacity=".18"/>
-    <path d="M0 220v-50l220-60 160 50 230-100 210 110 170-60 250 80 200-50v80z" fill="#f5a524" opacity=".35"/>
-  </svg>
+<!-- SERVICES -->
+<section id="services" class="intro">
+  <p class="eyebrow">CE QUE NOUS FAISONS</p>
+  <h2>QUATRE FAÇONS DE VOUS FAIRE GAGNER DU TEMPS</h2>
 </section>
 
-<section id="services" class="section">
-  <div class="wrap">
-    <p class="eyebrow dark">Ce que nous faisons</p>
-    <h2>Quatre façons de vous faire gagner du temps</h2>
-    <div class="grid4">
-      <article class="card">
-        <span class="ico">▦</span>
-        <h3>Logiciels métier</h3>
-        <p>Un outil pensé pour votre activité : chantiers, stocks, devis, clients, planning. Accessible depuis le bureau comme depuis le terrain.</p>
-      </article>
-      <article class="card">
-        <span class="ico">☺</span>
-        <h3>RH</h3>
-        <p>Absences, pointage des heures, formations, habilitations à renouveler, organigramme : tout le suivi du personnel au même endroit.</p>
-      </article>
-      <article class="card">
-        <span class="ico">€</span>
-        <h3>Comptabilité</h3>
-        <p>Devis, facturation, relances des impayés, tableaux de bord de trésorerie. Moins de ressaisie, moins d’erreurs.</p>
-      </article>
-      <article class="card">
-        <span class="ico">⚙</span>
-        <h3>Automatisation</h3>
-        <p>Lecture automatique de documents, alertes, exports, liaisons entre vos outils. Tout ce qui est répétitif peut presque toujours être automatisé.</p>
-      </article>
+<!-- 01 -->
+<section class="band red">
+  <div class="band-in">
+    <div class="art">
+      <svg viewBox="0 0 440 400" width="440" height="400" role="img" aria-label="Illustration : écrans d'un logiciel métier empilés">
+        <g transform="translate(40 40)">
+          <rect x="60" y="190" width="300" height="150" rx="8" fill="#161618" opacity=".35" transform="skewY(-8)"/>
+          <rect x="40" y="130" width="300" height="150" rx="8" fill="#fff" opacity=".35" transform="skewY(-8)"/>
+          <g transform="skewY(-8)">
+            <rect x="20" y="60" width="300" height="150" rx="8" fill="#fff"/>
+            <rect x="20" y="60" width="300" height="26" rx="8" fill="#161618"/>
+            <rect x="36" y="104" width="120" height="14" fill="#d8d8dd"/>
+            <rect x="36" y="128" width="200" height="10" fill="#e9e9ec"/>
+            <rect x="36" y="148" width="170" height="10" fill="#e9e9ec"/>
+            <rect class="ac" x="36" y="176" width="70" height="20"/>
+            <rect x="200" y="104" width="100" height="90" fill="#f0f0f2"/>
+            <rect class="ac" x="214" y="160" width="14" height="24"/>
+            <rect x="238" y="140" width="14" height="44" fill="#161618"/>
+            <rect class="ac" x="262" y="120" width="14" height="64"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="copy">
+      <p class="num">01</p>
+      <h3>LOGICIELS <span>MÉTIER</span></h3>
+      <div class="rule"></div>
+      <p>Un outil pensé pour votre activité, pas un logiciel générique qu'il faut contourner. Chantiers, stocks, devis, planning, suivi clients : tout au même endroit, au bureau comme sur le terrain.</p>
+      <p class="list">Suivi de chantiers<br>Planning et équipes<br>Stocks et matériel</p>
     </div>
   </div>
 </section>
 
-<section id="realisations" class="section alt">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow dark">Réalisations</p>
-      <h2>Un exemple concret : la gestion d’un groupe de signalisation routière</h2>
-      <p>Pour montrer ce que nous savons faire, nous avons conçu une maquette d’outil interne pour un groupe de 600 collaborateurs répartis sur 32 sites.</p>
-      <ul class="ticks">
-        <li>Tableau de bord avec alertes (factures en retard, stocks bas, habilitations à renouveler)</li>
-        <li>Planning, chantiers, agences, clients, devis et facturation</li>
-        <li>Scan de devis par lecture automatique</li>
-        <li>Mode terrain et pointage des heures sur mobile</li>
-        <li>Module RH : absences, formations, documents, organigramme</li>
-      </ul>
-      <a class="btn" href="https://site-six-livid-93.vercel.app/" target="_blank" rel="noopener">Ouvrir la démo <span aria-hidden="true">↗</span></a>
-      <p class="note">Maquette avec des données fictives.</p>
+<!-- 02 -->
+<section class="band grey light">
+  <div class="band-in flip">
+    <div class="copy">
+      <p class="num">02</p>
+      <h3>RESSOURCES <span>HUMAINES</span></h3>
+      <div class="rule"></div>
+      <p>Fini les tableurs qui circulent par mail. Vos équipes déclarent, vous validez, tout est tracé et rappelé au bon moment.</p>
+      <div class="minis">
+        <div><h4>ABSENCES</h4><p>Demandes, validation, calendrier d'équipe.</p></div>
+        <div><h4>POINTAGE</h4><p>Heures saisies depuis le téléphone.</p></div>
+        <div><h4>FORMATIONS</h4><p>Sessions, inscriptions, suivi.</p></div>
+        <div><h4>HABILITATIONS</h4><p>Alertes avant expiration.</p></div>
+      </div>
     </div>
-    <div class="mock" aria-hidden="true">
-      <div class="mock-bar"><i></i><i></i><i></i></div>
-      <div class="mock-body">
-        <div class="kpis"><div><b>7</b><span>chantiers</span></div><div><b>5</b><span>devis</span></div><div class="warn"><b>17</b><span>alertes</span></div></div>
-        <div class="row"><span>Lyon 7e — bandes cyclables</span><div class="bar"><i style="width:70%"></i></div></div>
-        <div class="row"><span>Alsace — marquage de nuit</span><div class="bar"><i style="width:55%"></i></div></div>
-        <div class="row"><span>Bretelle 5 — enduit à chaud</span><div class="bar"><i style="width:80%"></i></div></div>
-        <div class="row"><span>Plateau multisports</span><div class="bar"><i style="width:20%"></i></div></div>
+    <div class="art">
+      <svg viewBox="0 0 440 380" width="440" height="380" role="img" aria-label="Illustration : organigramme et calendrier d'absences">
+        <rect x="20" y="210" width="400" height="150" rx="6" fill="#fff"/>
+        <g fill="#d8d8dd"><rect x="40" y="236" width="40" height="30"/><rect x="90" y="236" width="40" height="30"/><rect x="140" y="236" width="40" height="30"/><rect x="190" y="236" width="40" height="30"/><rect x="240" y="236" width="40" height="30"/><rect x="290" y="236" width="40" height="30"/><rect x="340" y="236" width="40" height="30"/><rect x="40" y="276" width="40" height="30"/><rect x="90" y="276" width="40" height="30"/><rect x="190" y="276" width="40" height="30"/><rect x="290" y="276" width="40" height="30"/><rect x="40" y="316" width="40" height="30"/><rect x="240" y="316" width="40" height="30"/></g>
+        <g class="ac"><rect x="140" y="276" width="40" height="30"/><rect x="240" y="276" width="40" height="30"/><rect x="340" y="316" width="40" height="30"/></g>
+        <path d="M220 78v36M110 114h220M110 114v36M330 114v36" stroke="#161618" stroke-width="2" fill="none"/>
+        <rect x="170" y="30" width="100" height="48" rx="4" fill="#161618"/>
+        <rect x="60" y="150" width="100" height="42" rx="4" fill="#fff" stroke="#161618" stroke-width="2"/>
+        <rect x="280" y="150" width="100" height="42" rx="4" fill="#fff" stroke="#161618" stroke-width="2"/>
+        <rect x="184" y="46" width="72" height="8" fill="#fff"/><rect class="ac" x="184" y="60" width="44" height="6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="band dark">
+  <div class="band-in">
+    <div class="art">
+      <svg viewBox="0 0 440 360" width="440" height="360" role="img" aria-label="Illustration : facture et courbe de trésorerie">
+        <rect x="30" y="20" width="230" height="300" rx="6" fill="#26262a"/>
+        <rect x="52" y="48" width="90" height="12" fill="#fff"/>
+        <g fill="#4a4a52"><rect x="52" y="86" width="186" height="8"/><rect x="52" y="108" width="186" height="8"/><rect x="52" y="130" width="140" height="8"/><rect x="52" y="152" width="186" height="8"/></g>
+        <rect class="ac" x="52" y="250" width="186" height="44"/>
+        <rect x="70" y="268" width="80" height="8" fill="#fff"/>
+        <rect x="200" y="130" width="210" height="170" rx="6" fill="#fff"/>
+        <polyline points="216,270 248,240 280,252 312,206 344,218 376,160 396,172" fill="none" stroke="#161618" stroke-width="3"/>
+        <polyline class="ac-s" points="216,284 248,270 280,276 312,250 344,258 376,230 396,236" fill="none" stroke-width="3"/>
+        <rect x="216" y="148" width="60" height="8" fill="#161618"/><rect x="216" y="164" width="36" height="6" fill="#c9c9cf"/>
+      </svg>
+    </div>
+    <div class="copy">
+      <p class="num">03</p>
+      <h3>COMPTA <span>&amp; FACTURATION</span></h3>
+      <div class="rule"></div>
+      <p>Du devis à l'encaissement, sans ressaisie. Les factures impayées se signalent d'elles-mêmes et la trésorerie se lit d'un coup d'œil.</p>
+      <p class="list">Devis et facturation<br>Relances automatiques<br>Tableaux de bord de trésorerie</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="band paper light">
+  <div class="band-in flip">
+    <div class="copy">
+      <p class="num">04</p>
+      <h3>AUTOMATI<span>SATION</span></h3>
+      <div class="rule"></div>
+      <p>Si une tâche se répète, elle peut presque toujours être confiée à la machine. Nous relions vos outils et supprimons les gestes inutiles.</p>
+      <p class="list">Lecture automatique de documents<br>Alertes et rappels<br>Liaisons entre vos logiciels</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 440 320" width="440" height="320" role="img" aria-label="Illustration : trois étapes reliées par des flèches">
+        <g stroke="#161618" stroke-width="2.5" fill="none"><path d="M120 160h60M260 160h60"/><path d="M172 152l8 8-8 8M312 152l8 8-8 8"/></g>
+        <rect x="20" y="110" width="100" height="100" rx="6" fill="#fff" stroke="#161618" stroke-width="2.5"/>
+        <rect class="ac" x="180" y="110" width="80" height="100" rx="6"/>
+        <rect x="320" y="110" width="100" height="100" rx="6" fill="#161618"/>
+        <g fill="#c9c9cf"><rect x="36" y="130" width="68" height="8"/><rect x="36" y="150" width="50" height="8"/><rect x="36" y="170" width="60" height="8"/></g>
+        <circle cx="220" cy="160" r="18" fill="none" stroke="#fff" stroke-width="3"/><path d="M220 148v12l8 6" stroke="#fff" stroke-width="3" fill="none"/>
+        <path d="M344 162l14 14 26-30" stroke="#fff" stroke-width="5" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLE -->
+<section id="exemple" class="band dark">
+  <div class="demo-wrap">
+    <div class="demo-copy">
+      <p class="eyebrow">RÉALISATION</p>
+      <h2>LA GESTION D'UN GROUPE DE <span class="accent">SIGNALISATION ROUTIÈRE</span></h2>
+      <p>Pour montrer ce que nous savons faire, nous avons conçu l'outil interne d'un groupe de 600 collaborateurs sur 32 sites : tableau de bord, alertes, chantiers, devis, facturation, RH, mode terrain.</p>
+      <p class="fine">Maquette de démonstration, données fictives.</p>
+      <a class="btn" href="https://site-six-livid-93.vercel.app/" target="_blank" rel="noopener">OUVRIR LA DÉMO</a>
+    </div>
+    <div class="demo-shot" aria-hidden="true">
+      <div class="win">
+        <div class="win-bar"><i></i><i></i><i></i></div>
+        <div class="win-body">
+          <div class="kpis">
+            <div class="kpi"><b>7</b><span>chantiers en cours</span></div>
+            <div class="kpi"><b>5</b><span>devis en attente</span></div>
+            <div class="kpi hot"><b>17</b><span>alertes à traiter</span></div>
+          </div>
+          <div class="progress">
+            <div><label>Lyon 7e — bandes cyclables</label><div class="pbar"><i style="width:70%"></i></div></div>
+            <div><label>Alsace — marquage de nuit</label><div class="pbar"><i style="width:55%"></i></div></div>
+            <div><label>Bretelles autoroutières</label><div class="pbar"><i class="hot" style="width:80%"></i></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="methode" class="section">
-  <div class="wrap">
-    <p class="eyebrow dark">Notre méthode</p>
-    <h2>Simple, rapide, sans jargon</h2>
-    <ol class="steps">
-      <li><h3>On écoute</h3><p>Un échange pour comprendre votre quotidien et repérer ce qui vous fait perdre du temps.</p></li>
-      <li><h3>On propose</h3><p>Une maquette cliquable et un devis clair, avant d’écrire la moindre ligne définitive.</p></li>
-      <li><h3>On construit</h3><p>Livraison par étapes : vous testez, vous corrigez, nous ajustons.</p></li>
-      <li><h3>On accompagne</h3><p>Formation de vos équipes, suivi et évolutions dans la durée.</p></li>
-    </ol>
+<!-- MÉTHODE -->
+<section id="methode" class="band grey light">
+  <div class="section">
+    <p class="eyebrow">NOTRE MÉTHODE</p>
+    <h2>SIMPLE, RAPIDE, SANS JARGON</h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>ON ÉCOUTE</h3><p>Un échange pour comprendre votre quotidien et repérer ce qui vous fait perdre du temps.</p></div>
+      <div class="step"><b>02</b><h3>ON PROPOSE</h3><p>Une maquette cliquable et un devis clair, avant d'écrire la moindre ligne définitive.</p></div>
+      <div class="step"><b>03</b><h3>ON CONSTRUIT</h3><p>Livraison par étapes : vous testez, vous corrigez, nous ajustons.</p></div>
+      <div class="step"><b>04</b><h3>ON ACCOMPAGNE</h3><p>Formation de vos équipes, suivi et évolutions dans la durée.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="equipe" class="section alt">
-  <div class="wrap">
-    <p class="eyebrow dark">L’équipe</p>
-    <h2>Trois associés, une même exigence</h2>
+<!-- ÉQUIPE -->
+<section id="equipe" class="band dark">
+  <div class="section">
+    <p class="eyebrow">L'ÉQUIPE</p>
+    <h2>TROIS ASSOCIÉS, UNE MÊME <span class="accent">EXIGENCE</span></h2>
     <div class="team">
-      <article><span class="avatar">ET</span><h3>Émile Taraud</h3><p>Associé</p></article>
-      <article><span class="avatar">PL</span><h3>Paul Lemonnier</h3><p>Associé</p></article>
-      <article><span class="avatar">LD</span><h3>Lohan Dauzou</h3><p>Associé</p></article>
+      <div><div class="photo">[PHOTO]</div><h3>Émile Taraud</h3><p>Associé · [RÔLE]</p></div>
+      <div><div class="photo">[PHOTO]</div><h3>Paul Lemonnier</h3><p>Associé · [RÔLE]</p></div>
+      <div><div class="photo">[PHOTO]</div><h3>Lohan Dauzou</h3><p>Associé · [RÔLE]</p></div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section contact">
-  <div class="wrap split">
-    <div>
-      <h2>Un projet ? Une tâche qui vous épuise ?</h2>
-      <p>Décrivez-nous votre besoin en quelques lignes. Nous revenons vers vous rapidement, sans engagement.</p>
-    </div>
-    <form id="form" class="form">
-      <label>Nom<input name="nom" required autocomplete="name"></label>
-      <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>Votre besoin<textarea name="message" rows="4" required></textarea></label>
-      <button class="btn" type="submit">Envoyer</button>
-    </form>
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-in">
+    <p>Prêts à démarrer ? Parlons de votre projet.</p>
+    <a class="btn dark" href="devis.html">DEMANDER UN DEVIS</a>
   </div>
 </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap foot-in">
-    <span>© <span id="y">2026</span> Pelion</span>
-    <span>Logiciels métier, RH, compta et automatisation</span>
+  <div class="foot-in">
+    <span class="logo"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path class="ac" d="M2 28 13 8l6 10 4-6 7 16z"/></svg>PELION</span>
+    <span>[ADRESSE EMAIL] · [TÉLÉPHONE] · [VILLE]</span>
+    <span>© <span id="y">2026</span> Pelion · Mentions légales</span>
   </div>
 </footer>
 
