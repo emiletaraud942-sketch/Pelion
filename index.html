@@ -135,7 +135,17 @@ legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
 .ok{background:var(--acc-soft);border:1.5px solid var(--edge);border-radius:20px;padding:36px}.ok h3{font-size:30px;margin:8px 0}
 @media(max-width:860px){.quote{grid-template-columns:1fr}.est{position:static}.two{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
-.contact{max-width:760px}.contact h2,.contact .sub{max-width:none}
+#contact{padding:clamp(36px,5vw,72px) 0}
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(20px,5vw,80px);align-items:start}
+.contact>*{min-width:0}
+.contact h2{margin:8px 0 10px;font-size:clamp(28px,3.4vw,46px)}
+.contact .sub{margin:0;font-size:17px}
+.contact .tx{margin-bottom:10px;padding:10px 14px}
+.contact .lab{margin-bottom:5px}
+.contact .two{gap:12px}
+.contact .err{margin:0 0 10px}
+.contact .ok{padding:26px}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -244,13 +254,15 @@ legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
 </div></section>
 
 <section id="contact"><div class="w contact">
+<div class="ct">
 <span class="eyebrow">Contact</span>
 <h2>Parlons de votre entreprise.</h2>
 <p class="sub">Laissez vos coordonnées. Nous revenons vers vous sous un jour ouvré pour échanger sur vos besoins.</p>
+</div>
 <form id="qf" novalidate>
 <div class="two"><div><label class="lab" for="qn">Nom</label><input class="tx" id="qn" required autocomplete="name"></div><div><label class="lab" for="qc">Entreprise</label><input class="tx" id="qc" required autocomplete="organization"></div></div>
 <label class="lab" for="qe">Email professionnel</label><input class="tx" id="qe" type="email" required autocomplete="email">
-<label class="lab" for="qm">Message (facultatif)</label><textarea class="tx" id="qm" rows="4" placeholder="Votre activité, vos besoins"></textarea>
+<label class="lab" for="qm">Message (facultatif)</label><textarea class="tx" id="qm" rows="3" placeholder="Votre activité, vos besoins"></textarea>
 <p class="err" id="qerr" hidden></p>
 <button class="btn" type="submit">Envoyer ma demande</button>
 </form>
