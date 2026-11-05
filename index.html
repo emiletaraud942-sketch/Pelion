@@ -134,6 +134,20 @@ legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
 .est .fine,.ok .fine{font-size:12px;color:var(--mute);margin:18px 0 0}.est .mt{color:var(--mute)}
 .ok{background:var(--acc-soft);border:1.5px solid var(--edge);border-radius:20px;padding:36px}.ok h3{font-size:30px;margin:8px 0}
 @media(max-width:860px){.quote{grid-template-columns:1fr}.est{position:static}.two{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+/* dynamique */
+section[id]{scroll-margin-top:68px}
+nav a:not(.btn){position:relative;padding:4px 0}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav a.on{color:var(--ink)}nav a.on::after{transform:scaleX(1)}
+header.top{transition:box-shadow .25s}header.top.sc{box-shadow:0 10px 24px -20px rgba(31,42,36,.6)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
+.mod{transition:transform .2s}.mod:hover{transform:translateY(-3px)}
+.mod:hover .ic{transform:scale(1.12) rotate(-4deg)}.mod .ic{transition:transform .25s}
+.btn{transition:opacity .2s,transform .15s}.btn:active{transform:scale(.97)}
+.fd{animation:fd .35s ease}@keyframes fd{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.flash .tx{animation:fl 1.3s ease}@keyframes fl{0%{box-shadow:0 0 0 0 rgba(47,122,84,.55)}100%{box-shadow:0 0 0 14px rgba(47,122,84,0)}}
+#sig.done{background:var(--acc-soft);color:var(--acc);border-color:var(--acc)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.flash .tx,.fd{animation:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 #contact{padding:clamp(36px,5vw,72px) 0}
 .contact{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(20px,5vw,80px);align-items:start}
@@ -152,8 +166,8 @@ legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
 
 
 <a class="skip" href="#main">Aller au contenu</a>
-<header class="top"><div class="w">
-<a class="logo" href="#" aria-label="Pelion, accueil"><span class="mark" aria-hidden="true">P</span>Pelion</a>
+<header class="top" id="top"><div class="w">
+<a class="logo" href="#top" aria-label="Pelion, accueil"><span class="mark" aria-hidden="true">P</span>Pelion</a>
 <nav aria-label="Principal"><a href="#modules">Modules</a><a href="#mobile">Mobile</a><a href="#confiance">Confiance</a><a href="#gains">Gains</a><a href="#faq">FAQ</a><a class="btn" href="#contact">Nous contacter</a></nav>
 </div></header>
 
@@ -196,7 +210,7 @@ legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
 </div>
 <p><b>14:00</b> Réunion d'équipe, salle B</p>
 <p><b>16:30</b> Point qualité <span style="color:var(--warn);font-weight:600">· à préparer</span></p>
-<a class="btn" href="#" style="width:100%;justify-content:center;margin-top:10px;padding:11px">Signaler un problème</a>
+<button class="btn" id="sig" type="button" style="width:100%;justify-content:center;margin-top:10px;padding:11px">Signaler un problème</button>
 </div>
 <div>
 <span class="eyebrow">Sur mobile</span>
@@ -296,16 +310,19 @@ fi:`<h4>Ventes et clients</h4>
 <div class="row"><div class="t">Commandes à produire<small>signées, à planifier</small></div><b>8</b></div>
 <div class="row"><div class="t">Clients à relancer<small>dossiers sans réponse depuis 15 jours</small></div><b>5</b></div>`};
 const pane=document.getElementById('pane'),tabs=document.getElementById('tabs');
-function show(k){pane.innerHTML=P[k];tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k))}
+function show(k){pane.innerHTML=P[k];pane.classList.remove('fd');void pane.offsetWidth;pane.classList.add('fd');tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k))}
 tabs.addEventListener('click',e=>{if(e.target.dataset.k)show(e.target.dataset.k)});show('pr');
-const ks=Object.keys(P);let n=0,auto=setInterval(()=>show(ks[++n%ks.length]),4500);
+const ks=Object.keys(P);let n=0,hold=false,auto=setInterval(()=>{if(!hold)show(ks[++n%ks.length])},4500);document.querySelector('.app').addEventListener('mouseenter',()=>hold=true);document.querySelector('.app').addEventListener('mouseleave',()=>hold=false);
 tabs.addEventListener('click',()=>clearInterval(auto));
 const $=id=>document.getElementById(id),nf=n=>Math.round(n).toLocaleString('fr-FR');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function tw(id,v,f){const el=$(id),from=+el.dataset.v||0;el.dataset.v=v;if(reduced){el.textContent=f(v);return}
+const t0=performance.now();cancelAnimationFrame(el._r);(function k(t){const p=Math.min(1,(t-t0)/400),e=1-Math.pow(1-p,3);el.textContent=f(from+(v-from)*e);if(p<1)el._r=requestAnimationFrame(k)})(t0)}
 /* Simulateur : heures/mois = personnes x h/semaine x 46 semaines / 12 mois x 25 % de gain */
 function calc(){const n=+$('a').value,h=+$('b').value;
 const hm=n*h*46/12*.25;
 $('av').textContent=nf(n);$('bv').textContent=h+' h';
-$('out').textContent=nf(hm)+' h';$('etp').textContent=(hm/151.67).toLocaleString('fr-FR',{maximumFractionDigits:1});$('eur').textContent=nf(hm*12)+' h'}
+tw('out',hm,v=>nf(v)+' h');tw('etp',hm/151.67,v=>v.toLocaleString('fr-FR',{maximumFractionDigits:1}));tw('eur',hm*12,v=>nf(v)+' h')}
 ['a','b'].forEach(i=>$(i).addEventListener('input',calc));calc();
 /* Contact : maquette, rien n'est envoyé */
 const qf=$('qf');
@@ -315,6 +332,20 @@ if(miss.length){err.hidden=false;err.textContent='Il manque '+miss[0][1]+'.';$(m
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 qf.outerHTML='<div class="ok" id="qf" tabindex="-1"><h3>Merci '+esc($('qn').value.trim())+'.</h3><p>Votre demande pour '+esc($('qc').value.trim())+' serait transmise à l\'équipe, qui répondrait à '+esc($('qe').value.trim())+' sous un jour ouvré.</p><p class="fine">Cette maquette n\'envoie rien : aucune donnée n\'a quitté cette page.</p></div>';
 $('qf').focus()});
+
+/* liens et boutons */
+document.querySelectorAll('a[href="#contact"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();
+ $('contact').scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+ setTimeout(()=>{const f=$('qf');if(f&&f.tagName=='FORM'){f.classList.remove('flash');void f.offsetWidth;f.classList.add('flash');$('qn').focus({preventScroll:true})}},reduced?0:650)}));
+const sig=$('sig');sig.addEventListener('click',()=>{sig.textContent='Signalement transmis (démo)';sig.classList.add('done');setTimeout(()=>{sig.textContent='Signaler un problème';sig.classList.remove('done')},2600)});
+const head=$('top');addEventListener('scroll',()=>head.classList.toggle('sc',scrollY>8),{passive:true});
+if('IntersectionObserver' in window){
+ const links=[...document.querySelectorAll('nav a:not(.btn)')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+ const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach((a,i)=>a.classList.toggle('on',secs[i]===e.target))}),{rootMargin:'-45% 0px -50% 0px'});
+ secs.forEach(x=>x&&so.observe(x));
+ if(!reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+ document.querySelectorAll('.mod,.step,.pillars>div,.list li,.faq details,.calc,.phone,.kpis>div').forEach((el,i)=>{if(el.getBoundingClientRect().top>innerHeight){el.style.transitionDelay=(i%4)*70+'ms';el.classList.add('rv');io.observe(el)}})}
+}
 </script>
 
 </body>
