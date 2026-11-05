@@ -2,247 +2,308 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pelion — Logiciels métier, RH, compta et automatisation</title>
-<meta name="description" content="Pelion conçoit des logiciels métier sur mesure, des outils RH et comptables et des automatisations pour les entreprises.">
-<meta name="theme-color" content="#161618">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pelion</title>
+<meta name="description" content="Pelion réunit projets, planning, ressources, équipes et qualité dans un outil clair, pour toute entreprise.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Instrument+Sans:wght@400..700&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Layout: quiet sticky nav, wide typographic hero beside a calm product mock, thin-ruled sections, one deep-ink band, single blue accent */
+:root{--bg:#f6f4ec;--surface:#fdfcf8;--ink:#26332c;--mute:#6b776f;--line:#e2e0d3;--acc:#2f7a54;--acc-soft:#e4efe6;--ok:#2f7a54;--warn:#a9791c;--bad:#b5503f;--band:#e8efe4;--band-ink:#26332c;--serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+.w{max-width:1480px;margin:0 auto;padding-left:max(clamp(16px,4.5vw,72px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4.5vw,72px),env(safe-area-inset-right,0px))}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;text-wrap:balance}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .w{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:23px;font-weight:500;text-decoration:none;letter-spacing:-.02em}
+.logo svg{width:22px;height:22px;color:var(--acc)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{text-decoration:none;color:var(--mute);font-size:14px}nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font:600 15px var(--sans);text-decoration:none;background:var(--acc);color:#fff;border:1px solid var(--acc);cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn.sec{background:transparent;color:var(--ink);border-color:var(--line)}
+nav .btn{padding:9px 18px;font-size:14px;color:#fff}
+.btn.sec{color:var(--ink)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.hero{padding:clamp(56px,8vw,130px) 0 clamp(56px,7vw,110px)}
+.hero .g{display:grid;gap:clamp(32px,5vw,96px);grid-template-columns:1fr 1fr;align-items:center}
+.hero .g>*,.split>*,.calc>*{min-width:0}
+h1{font-size:clamp(40px,6vw,96px);line-height:1.02;margin:18px 0 22px}
+h1 em{font-style:italic;color:var(--acc)}
+.lead{font-size:clamp(18px,1.5vw,22px);color:var(--mute);max-width:560px;margin:0 0 32px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hint{margin-top:22px;font-size:13px;color:var(--mute)}
+.app{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px -40px rgba(47,122,84,.35);overflow:hidden}
+.app .bar{display:flex;gap:6px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.app .bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.app .bar span{margin-left:10px;font-size:12px;color:var(--mute)}
+.tabs{display:flex;gap:2px;padding:10px 12px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{border:0;background:none;color:var(--mute);font:600 13px var(--sans);padding:7px 13px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:var(--acc-soft);color:var(--acc)}
+.pane{padding:20px;min-height:300px}
+.pane h4{margin:0 0 14px;font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row:last-child{border:0}
+.row .t{flex:1;min-width:0}.row small{color:var(--mute);display:block;font-size:12px}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.b-ok{color:var(--ok)}.b-warn{color:var(--warn)}.b-bad{color:var(--bad)}
+.meter{height:5px;border-radius:9px;background:var(--line);overflow:hidden;width:90px}.meter i{display:block;height:100%;background:var(--acc)}
+section{padding:clamp(64px,8vw,130px) 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(30px,4.2vw,64px);line-height:1.08;margin:12px 0 16px;max-width:720px}
+.sub{color:var(--mute);font-size:18px;max-width:600px;margin:0 0 52px}
+.mods{display:grid;gap:0 48px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:1px solid var(--line)}
+.mod{padding:36px 0;border-bottom:1px solid var(--line)}
+.mod .ic{width:26px;height:26px;color:var(--acc);margin-bottom:18px}
+.mod h3{margin:0 0 8px;font-size:23px}.mod p{margin:0;color:var(--mute);font-size:15px;max-width:340px}
+.split{display:grid;gap:clamp(32px,6vw,110px);grid-template-columns:1fr 1fr;align-items:center}
+.phone{width:280px;margin:0 auto;border:1px solid var(--line);border-radius:36px;background:var(--surface);padding:22px 18px;box-shadow:0 30px 60px -40px rgba(18,21,28,.35)}
+.phone .scan{height:130px;border-radius:14px;background:var(--acc-soft);display:grid;place-items:center;font-weight:600;color:var(--acc);margin:14px 0;font-size:14px}
+.phone p{font-size:13px;margin:8px 0}
+.list{margin:0;padding:0;list-style:none}
+.list li{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.list li:first-child{border-top:1px solid var(--line)}
+.list b{display:block;font-weight:600}.list span{color:var(--mute);font-size:14px}
+.dot{flex:none;width:8px;height:8px;border-radius:50%;margin-top:9px;background:var(--acc)}
+.band{background:var(--band);color:var(--band-ink);border-top:0}
+.band .sub{color:var(--mute)}.band .eyebrow{color:var(--acc)}
+.pillars{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.pillars div{border-top:2px solid var(--acc);padding-top:20px}
+.pillars h3{margin:0 0 8px;font-size:22px}.pillars p{margin:0;font-size:15px;color:var(--mute)}
+.steps{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.step{border-top:2px solid var(--acc);padding-top:20px}
+.step small{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.step h3{margin:6px 0;font-size:22px}.step p{margin:0;color:var(--mute);font-size:15px}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:40px;display:grid;gap:48px;grid-template-columns:1fr 1fr}
+.calc label{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-bottom:8px}.calc label b{color:var(--ink)}
+.calc input[type=range]{width:100%;accent-color:var(--acc);margin-bottom:28px}
+.res{text-align:center;align-self:center}
+.res strong{display:block;font-family:var(--serif);font-weight:500;font-size:68px;letter-spacing:-.03em;color:var(--acc);line-height:1.1}
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;font:500 20px var(--serif)}
+.faq p{margin:10px 0 0;color:var(--mute);max-width:700px}
+.final{text-align:center}
+.final h2{margin:12px auto 16px}.final .sub{margin:0 auto 32px}
+form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+form input{padding:13px 20px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:min(280px,100%);font:inherit}
+footer{border-top:1px solid var(--line);padding:32px 0 44px;color:var(--mute);font-size:13px}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:860px){.hero .g,.split,.calc{grid-template-columns:1fr}nav a:not(.btn){display:none}.hero{padding:56px 0}section{padding:64px 0}.calc{padding:26px}.mod{padding-right:0}}
+/* logo manuscrit */
+.logo .mark{font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-weight:700;font-size:44px;line-height:.7;color:var(--acc);transform:rotate(-6deg);padding-top:6px}
+/* contours noirs sur les blocs */
+:root{--edge:#1f2a24}
+header.top{border-bottom-color:var(--edge)}footer{border-top-color:var(--edge)}
+section{border-top-color:var(--edge)}
+.app,.phone,.calc,.est,.tx,.chk label{border:1.5px solid var(--edge)}
+.mods,.mod{border-color:var(--edge)}
+.faq details,.faq details:first-of-type{border-color:var(--edge)}
+.list li,.list li:first-child{border-color:var(--edge)}
+.btn.sec{border-color:var(--edge)}
+.app .bar,.tabs{border-bottom-color:var(--edge)}
+.app .bar i{background:var(--edge);opacity:.35}
+/* simulateur */
+.calc .cap{display:block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;text-align:left}
+.kpis div{border-top:2px solid var(--acc);padding-top:12px}
+.kpis b{display:block;font:500 30px var(--serif);letter-spacing:-.02em}.kpis small{color:var(--mute);font-size:13px}
+/* devis */
+.quote{display:grid;gap:clamp(24px,4vw,64px);grid-template-columns:1.25fr 1fr;align-items:start}
+.quote>*{min-width:0}
+fieldset{border:0;padding:0;margin:0 0 36px}
+legend{font:500 22px var(--serif);padding:0;margin-bottom:16px}
+.chk{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.chk label{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:var(--surface);cursor:pointer;font-weight:600;font-size:15px}
+.chk label:has(input:checked){background:var(--acc-soft);border-color:var(--acc)}
+.chk input,.lab input[type=checkbox]{accent-color:var(--acc);width:18px;height:18px;margin:0}
+.lab{display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:14px;color:var(--mute);margin:0 0 8px}
+.lab b{color:var(--ink)}
+.quote input[type=range]{width:100%;accent-color:var(--acc);margin-bottom:22px}
+.tx{width:100%;padding:13px 16px;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;margin-bottom:18px}
+.two{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+.err{color:var(--bad);font-weight:600;margin:0 0 14px}
+.est{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));background:var(--surface);border-radius:20px;padding:30px}
+.est h3{margin:0 0 16px;font-size:26px}
+.est ul{list-style:none;margin:0;padding:0}.est li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.est li.d{color:var(--ok)}
+.est .tot{padding:22px 0 14px}.est .tot strong{display:block;font:500 54px var(--serif);letter-spacing:-.03em;color:var(--acc);line-height:1.1}.est small{color:var(--mute)}
+.est .one{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;font-size:15px}
+.est .fine,.ok .fine{font-size:12px;color:var(--mute);margin:18px 0 0}.est .mt{color:var(--mute)}
+.ok{background:var(--acc-soft);border:1.5px solid var(--edge);border-radius:20px;padding:36px}.ok h3{font-size:30px;margin:8px 0}
+@media(max-width:860px){.quote{grid-template-columns:1fr}.est{position:static}.two{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+.contact{max-width:760px}.contact h2,.contact .sub{max-width:none}
+</style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <svg class="hero-bg" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <path d="M0 760V520l180-110 160 80 220-190 200 160 170-120 240 170 160-110 110 80v380z" fill="#222226"/>
-    <path d="M0 760V610l240-90 180 70 260-150 220 150 190-90 350 120v140z" fill="#1c1c1f"/>
-  </svg>
-  <header class="nav">
-    <a class="logo" href="index.html" aria-label="Pelion, accueil">
-      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path class="ac" d="M2 28 14 5l12 23z"/><path d="M14 5l12 23H14z" fill="#000" opacity=".22"/><path d="M18 28l7-14 6 14z" fill="#fff"/></svg>
-      PELION
-    </a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="menu">MENU</button>
-    <nav class="menu" id="menu">
-      <a href="#services">SERVICES</a>
-      <a href="#exemple">EXEMPLE</a>
-      <a href="#methode">MÉTHODE</a>
-      <a href="#equipe">ÉQUIPE</a>
-      <a class="btn small" href="devis.html">DEMANDER UN DEVIS</a>
-    </nav>
-  </header>
-  <div class="hero-body">
-    <p class="eyebrow" style="margin-bottom:28px">LOGICIELS MÉTIER · RH · COMPTABILITÉ · AUTOMATISATION</p>
-    <h1>TOUTE TÂCHE RÉPÉTITIVE PEUT ÊTRE <span>AUTOMATISÉE</span></h1>
-    <p class="hero-lead">Trois associés qui conçoivent, pour les entreprises, les outils qui leur font gagner du temps. Sur mesure, simples à utiliser.</p>
-    <div class="hero-cta">
-      <a class="btn" href="devis.html">DEMANDER UN DEVIS</a>
-      <a class="btn ghost" href="#exemple">VOIR UN EXEMPLE</a>
-    </div>
-  </div>
-</section>
 
-<main>
-<!-- SERVICES -->
-<section id="services" class="intro">
-  <p class="eyebrow">CE QUE NOUS FAISONS</p>
-  <h2>QUATRE FAÇONS DE VOUS FAIRE GAGNER DU TEMPS</h2>
-</section>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><div class="w">
+<a class="logo" href="#" aria-label="Pelion, accueil"><span class="mark" aria-hidden="true">P</span>Pelion</a>
+<nav aria-label="Principal"><a href="#modules">Modules</a><a href="#mobile">Mobile</a><a href="#confiance">Confiance</a><a href="#gains">Gains</a><a href="#faq">FAQ</a><a class="btn" href="#contact">Nous contacter</a></nav>
+</div></header>
 
-<!-- 01 -->
-<section class="band red">
-  <div class="band-in">
-    <div class="art">
-      <svg viewBox="0 0 440 400" width="440" height="400" role="img" aria-label="Illustration : écrans d'un logiciel métier empilés">
-        <g transform="translate(40 40)">
-          <rect x="60" y="190" width="300" height="150" rx="8" fill="#161618" opacity=".35" transform="skewY(-8)"/>
-          <rect x="40" y="130" width="300" height="150" rx="8" fill="#fff" opacity=".35" transform="skewY(-8)"/>
-          <g transform="skewY(-8)">
-            <rect x="20" y="60" width="300" height="150" rx="8" fill="#fff"/>
-            <rect x="20" y="60" width="300" height="26" rx="8" fill="#161618"/>
-            <rect x="36" y="104" width="120" height="14" fill="#d8d8dd"/>
-            <rect x="36" y="128" width="200" height="10" fill="#e9e9ec"/>
-            <rect x="36" y="148" width="170" height="10" fill="#e9e9ec"/>
-            <rect class="ac" x="36" y="176" width="70" height="20"/>
-            <rect x="200" y="104" width="100" height="90" fill="#f0f0f2"/>
-            <rect class="ac" x="214" y="160" width="14" height="24"/>
-            <rect x="238" y="140" width="14" height="44" fill="#161618"/>
-            <rect class="ac" x="262" y="120" width="14" height="64"/>
-          </g>
-        </g>
-      </svg>
-    </div>
-    <div class="copy">
-      <p class="num">01</p>
-      <h3>LOGICIELS <span>MÉTIER</span></h3>
-      <div class="rule"></div>
-      <p>Un outil pensé pour votre activité, pas un logiciel générique qu'il faut contourner. Chantiers, stocks, devis, planning, suivi clients : tout au même endroit, au bureau comme sur le terrain.</p>
-      <p class="list">Suivi de chantiers<br>Planning et équipes<br>Stocks et matériel</p>
-      <p style="margin-top:28px"><a class="more" href="logiciels-metier.html">EN SAVOIR PLUS →</a></p>
-    </div>
-  </div>
-</section>
+<main id="main">
+<section class="hero" style="border:0"><div class="w g">
+<div>
+<span class="eyebrow">Pilotage d'entreprise</span>
+<h1>Toute votre entreprise, <em>sur une seule page.</em></h1>
+<p class="lead">Pelion réunit projets, planning, ressources, équipes, qualité et ventes dans un outil clair, adapté à votre façon de travailler, quelle que soit votre activité.</p>
+<div class="cta-row"><a class="btn" href="#contact">Nous contacter</a><a class="btn sec" href="#modules">Découvrir les modules</a></div>
+<p class="hint">Pour les PME comme pour les grands groupes. Tous les secteurs.</p>
+</div>
+<div class="app" aria-label="Aperçu de l'application">
+<div class="bar"><i></i><i></i><i></i><span>pelion.app · Vue d'ensemble</span></div>
+<div class="tabs" role="tablist" id="tabs">
+<button role="tab" aria-selected="true" data-k="pr">Projets</button><button role="tab" aria-selected="false" data-k="pl">Planning</button><button role="tab" aria-selected="false" data-k="re">Ressources</button><button role="tab" aria-selected="false" data-k="qu">Qualité</button><button role="tab" aria-selected="false" data-k="fi">Ventes</button>
+</div>
+<div class="pane" id="pane" role="tabpanel"></div>
+</div>
+</div></section>
 
-<!-- 02 -->
-<section class="band grey light">
-  <div class="band-in flip">
-    <div class="copy">
-      <p class="num">02</p>
-      <h3>RESSOURCES <span>HUMAINES</span></h3>
-      <div class="rule"></div>
-      <p>Fini les tableurs qui circulent par mail. Vos équipes déclarent, vous validez, tout est tracé et rappelé au bon moment.</p>
-      <div class="minis">
-        <div><h4>ABSENCES</h4><p>Demandes, validation, calendrier d'équipe.</p></div>
-        <div><h4>POINTAGE</h4><p>Heures saisies depuis le téléphone.</p></div>
-        <div><h4>FORMATIONS</h4><p>Sessions, inscriptions, suivi.</p></div>
-        <div><h4>HABILITATIONS</h4><p>Alertes avant expiration.</p></div>
-      </div>
-    </div>
-    <div class="art">
-      <svg viewBox="0 0 440 380" width="440" height="380" role="img" aria-label="Illustration : organigramme et calendrier d'absences">
-        <rect x="20" y="210" width="400" height="150" rx="6" fill="#fff"/>
-        <g fill="#d8d8dd"><rect x="40" y="236" width="40" height="30"/><rect x="90" y="236" width="40" height="30"/><rect x="140" y="236" width="40" height="30"/><rect x="190" y="236" width="40" height="30"/><rect x="240" y="236" width="40" height="30"/><rect x="290" y="236" width="40" height="30"/><rect x="340" y="236" width="40" height="30"/><rect x="40" y="276" width="40" height="30"/><rect x="90" y="276" width="40" height="30"/><rect x="190" y="276" width="40" height="30"/><rect x="290" y="276" width="40" height="30"/><rect x="40" y="316" width="40" height="30"/><rect x="240" y="316" width="40" height="30"/></g>
-        <g class="ac"><rect x="140" y="276" width="40" height="30"/><rect x="240" y="276" width="40" height="30"/><rect x="340" y="316" width="40" height="30"/></g>
-        <path d="M220 78v36M110 114h220M110 114v36M330 114v36" stroke="#161618" stroke-width="2" fill="none"/>
-        <rect x="170" y="30" width="100" height="48" rx="4" fill="#161618"/>
-        <rect x="60" y="150" width="100" height="42" rx="4" fill="#fff" stroke="#161618" stroke-width="2"/>
-        <rect x="280" y="150" width="100" height="42" rx="4" fill="#fff" stroke="#161618" stroke-width="2"/>
-        <rect x="184" y="46" width="72" height="8" fill="#fff"/><rect class="ac" x="184" y="60" width="44" height="6"/>
-      </svg>
-      <p style="margin-top:28px"><a class="more" href="rh.html">EN SAVOIR PLUS →</a></p>
-    </div>
-  </div>
-</section>
+<section id="modules"><div class="w">
+<span class="eyebrow">Modules</span>
+<h2>Chaque service dispose de son propre espace.</h2>
+<p class="sub">Tout le monde travaille sur les mêmes données, mises à jour en temps réel. Vous activez uniquement ce dont vous avez besoin.</p>
+<div class="mods">
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg><h3>Projets</h3><p>Suivi, fiches et rapports de chaque projet, de la commande à la livraison.</p></article>
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h3>Planning</h3><p>Qui fait quoi, quand et avec quelles ressources, sans conflit d'agenda.</p></article>
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg><h3>Ressources et stocks</h3><p>Matériel, fournitures et équipements, avec des alertes avant la rupture.</p></article>
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 5a3.5 3.5 0 0 1 0 6M22 21c0-3-2-5-4-5.5"/></svg><h3>Équipes</h3><p>Absences, congés, formations et organigramme, sans données sensibles.</p></article>
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>Qualité et conformité</h3><p>Actions correctives, incidents et certifications suivis jusqu'à la clôture.</p></article>
+<article class="mod"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg><h3>Ventes et clients</h3><p>Devis, commandes et relances clients suivis au même endroit.</p></article>
+</div></div></section>
 
-<!-- 03 -->
-<section class="band dark">
-  <div class="band-in">
-    <div class="art">
-      <svg viewBox="0 0 440 360" width="440" height="360" role="img" aria-label="Illustration : facture et courbe de trésorerie">
-        <rect x="30" y="20" width="230" height="300" rx="6" fill="#26262a"/>
-        <rect x="52" y="48" width="90" height="12" fill="#fff"/>
-        <g fill="#4a4a52"><rect x="52" y="86" width="186" height="8"/><rect x="52" y="108" width="186" height="8"/><rect x="52" y="130" width="140" height="8"/><rect x="52" y="152" width="186" height="8"/></g>
-        <rect class="ac" x="52" y="250" width="186" height="44"/>
-        <rect x="70" y="268" width="80" height="8" fill="#fff"/>
-        <rect x="200" y="130" width="210" height="170" rx="6" fill="#fff"/>
-        <polyline points="216,270 248,240 280,252 312,206 344,218 376,160 396,172" fill="none" stroke="#161618" stroke-width="3"/>
-        <polyline class="ac-s" points="216,284 248,270 280,276 312,250 344,258 376,230 396,236" fill="none" stroke-width="3"/>
-        <rect x="216" y="148" width="60" height="8" fill="#161618"/><rect x="216" y="164" width="36" height="6" fill="#c9c9cf"/>
-      </svg>
-    </div>
-    <div class="copy">
-      <p class="num">03</p>
-      <h3>COMPTA <span>&amp; FACTURATION</span></h3>
-      <div class="rule"></div>
-      <p>Du devis à l'encaissement, sans ressaisie. Les factures impayées se signalent d'elles-mêmes et la trésorerie se lit d'un coup d'œil.</p>
-      <p class="list">Devis et facturation<br>Relances automatiques<br>Tableaux de bord de trésorerie</p>
-      <p style="margin-top:28px"><a class="more" href="comptabilite.html">EN SAVOIR PLUS →</a></p>
-    </div>
-  </div>
-</section>
+<section id="mobile"><div class="w split">
+<div class="phone" aria-label="Application mobile">
+<b style="font-family:var(--serif);font-size:20px;font-weight:500">Ma journée</b><p style="color:var(--mute);margin-top:2px">Site de Lyon</p>
+<div class="scan" style="display:block;height:auto;text-align:left;padding:14px 16px;font-weight:500">
+<small style="color:var(--mute)">09:00 – 12:00</small><br>Livraison chez un client
+</div>
+<p><b>14:00</b> Réunion d'équipe, salle B</p>
+<p><b>16:30</b> Point qualité <span style="color:var(--warn);font-weight:600">· à préparer</span></p>
+<a class="btn" href="#" style="width:100%;justify-content:center;margin-top:10px;padding:11px">Signaler un problème</a>
+</div>
+<div>
+<span class="eyebrow">Sur mobile</span>
+<h2>Utile aussi à ceux qui ne sont pas derrière un bureau.</h2>
+<p class="sub" style="margin-bottom:28px">Une application simple pour consulter son planning, suivre ses tâches ou signaler un problème, même avec une connexion faible.</p>
+<ul class="list">
+<li><span class="dot"></span><div><b>Planning de la journée</b><span>Lieu, horaires et équipe, toujours à jour.</span></div></li>
+<li><span class="dot"></span><div><b>Signalement en un geste</b><span>Un écart ou un incident remonte avec une photo et un commentaire.</span></div></li>
+<li><span class="dot"></span><div><b>Messages urgents</b><span>Une alerte arrive directement au bon responsable.</span></div></li>
+</ul>
+</div></div></section>
 
-<!-- 04 -->
-<section class="band paper light">
-  <div class="band-in flip">
-    <div class="copy">
-      <p class="num">04</p>
-      <h3>AUTOMATI<span>SATION</span></h3>
-      <div class="rule"></div>
-      <p>Si une tâche se répète, elle peut presque toujours être confiée à la machine. Nous relions vos outils et supprimons les gestes inutiles.</p>
-      <p class="list">Lecture automatique de documents<br>Alertes et rappels<br>Liaisons entre vos logiciels</p>
-    </div>
-    <div class="art">
-      <svg viewBox="0 0 440 320" width="440" height="320" role="img" aria-label="Illustration : trois étapes reliées par des flèches">
-        <g stroke="#161618" stroke-width="2.5" fill="none"><path d="M120 160h60M260 160h60"/><path d="M172 152l8 8-8 8M312 152l8 8-8 8"/></g>
-        <rect x="20" y="110" width="100" height="100" rx="6" fill="#fff" stroke="#161618" stroke-width="2.5"/>
-        <rect class="ac" x="180" y="110" width="80" height="100" rx="6"/>
-        <rect x="320" y="110" width="100" height="100" rx="6" fill="#161618"/>
-        <g fill="#c9c9cf"><rect x="36" y="130" width="68" height="8"/><rect x="36" y="150" width="50" height="8"/><rect x="36" y="170" width="60" height="8"/></g>
-        <circle cx="220" cy="160" r="18" fill="none" stroke="#fff" stroke-width="3"/><path d="M220 148v12l8 6" stroke="#fff" stroke-width="3" fill="none"/>
-        <path d="M344 162l14 14 26-30" stroke="#fff" stroke-width="5" fill="none"/>
-      </svg>
-      <p style="margin-top:28px"><a class="more" href="automatisation.html">EN SAVOIR PLUS →</a></p>
-    </div>
-  </div>
-</section>
+<section id="confiance" class="band"><div class="w">
+<span class="eyebrow">Confiance</span>
+<h2>Vos données restent les vôtres.</h2>
+<p class="sub">Un outil de pilotage ne doit jamais devenir un risque.</p>
+<div class="pillars">
+<div><h3>Droits d'accès</h3><p>Chacun voit son périmètre et son métier, rien de plus.</p></div>
+<div><h3>Hébergement en Europe</h3><p>Sauvegardes quotidiennes et chiffrement des échanges.</p></div>
+<div><h3>Traçabilité</h3><p>Chaque modification est historisée : qui, quand, quoi.</p></div>
+<div><h3>Respect du RGPD</h3><p>Pas de salaires, de santé ni d'évaluations individuelles dans l'outil.</p></div>
+</div></div></section>
 
-<!-- EXEMPLE -->
-<section id="exemple" class="band dark">
-  <div class="demo-wrap">
-    <div class="demo-copy">
-      <p class="eyebrow">RÉALISATION</p>
-      <h2>LA GESTION D'UN GROUPE DE <span class="accent">SIGNALISATION ROUTIÈRE</span></h2>
-      <p>Pour montrer ce que nous savons faire, nous avons conçu l'outil interne d'un groupe de 600 collaborateurs sur 32 sites : tableau de bord, alertes, chantiers, devis, facturation, RH, mode terrain.</p>
-      <p class="fine">Maquette de démonstration, données fictives.</p>
-      <a class="btn" href="https://site-six-livid-93.vercel.app/" target="_blank" rel="noopener">OUVRIR LA DÉMO</a>
-    </div>
-    <div class="demo-shot" aria-hidden="true">
-      <div class="win">
-        <div class="win-bar"><i></i><i></i><i></i></div>
-        <div class="win-body">
-          <div class="kpis">
-            <div class="kpi"><b>7</b><span>chantiers en cours</span></div>
-            <div class="kpi"><b>5</b><span>devis en attente</span></div>
-            <div class="kpi hot"><b>17</b><span>alertes à traiter</span></div>
-          </div>
-          <div class="progress">
-            <div><label>Lyon 7e — bandes cyclables</label><div class="pbar"><i style="width:70%"></i></div></div>
-            <div><label>Alsace — marquage de nuit</label><div class="pbar"><i style="width:55%"></i></div></div>
-            <div><label>Bretelles autoroutières</label><div class="pbar"><i class="hot" style="width:80%"></i></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="gains"><div class="w">
+<span class="eyebrow">Simulateur</span>
+<h2>Combien de temps pouvez-vous récupérer ?</h2>
+<p class="sub">Estimation indicative des heures de coordination et de saisie évitées. À affiner avec vous lors de la démo.</p>
+<div class="calc">
+<div>
+<label for="a">Collaborateurs concernés <b id="av">50</b></label><input id="a" type="range" min="1" max="1000" value="50">
+<label for="b">Heures par semaine et par personne passées à chercher, ressaisir ou coordonner <b id="bv">4 h</b></label><input id="b" type="range" min="1" max="15" value="4">
+<p class="hint" style="margin:0">Hypothèses : Pelion réduit ce temps de 25 %, sur 46 semaines travaillées par an et 151,67 h par mois pour un temps plein.</p>
+</div>
+<div class="res"><span class="cap">Temps récupéré chaque mois</span><strong id="out">0 h</strong>
+<div class="kpis"><div><b id="etp">0</b><small>équivalent temps plein</small></div><div><b id="eur">0 h</b><small>récupérables par an</small></div></div></div>
+</div></div></section>
 
-<!-- MÉTHODE -->
-<section id="methode" class="band grey light">
-  <div class="section">
-    <p class="eyebrow">NOTRE MÉTHODE</p>
-    <h2>SIMPLE, RAPIDE, SANS JARGON</h2>
-    <div class="steps">
-      <div class="step"><b>01</b><h3>ON ÉCOUTE</h3><p>Un échange pour comprendre votre quotidien et repérer ce qui vous fait perdre du temps.</p></div>
-      <div class="step"><b>02</b><h3>ON PROPOSE</h3><p>Une maquette cliquable et un devis clair, avant d'écrire la moindre ligne définitive.</p></div>
-      <div class="step"><b>03</b><h3>ON CONSTRUIT</h3><p>Livraison par étapes : vous testez, vous corrigez, nous ajustons.</p></div>
-      <div class="step"><b>04</b><h3>ON ACCOMPAGNE</h3><p>Formation de vos équipes, suivi et évolutions dans la durée.</p></div>
-    </div>
-  </div>
-</section>
+<section><div class="w">
+<span class="eyebrow">Mise en place</span>
+<h2>Un démarrage progressif, à votre rythme.</h2>
+<p class="sub">On commence par une équipe pilote, puis on étend.</p>
+<div class="steps">
+<div class="step"><small>Étape 1</small><h3>Cadrage</h3><p>On recense vos projets, ressources et équipes.</p></div>
+<div class="step"><small>Étape 2</small><h3>Reprise des données</h3><p>Vos fichiers existants sont importés, sans ressaisie.</p></div>
+<div class="step"><small>Étape 3</small><h3>Équipe pilote</h3><p>Un service teste l'outil et nous remonte ses retours.</p></div>
+<div class="step"><small>Étape 4</small><h3>Déploiement</h3><p>Formation puis ouverture progressive aux autres équipes.</p></div>
+</div></div></section>
 
-<!-- ÉQUIPE -->
-<section id="equipe" class="band dark">
-  <div class="section">
-    <p class="eyebrow">L'ÉQUIPE</p>
-    <h2>TROIS ASSOCIÉS, UNE MÊME <span class="accent">EXIGENCE</span></h2>
-    <div class="team">
-      <div><div class="photo">[PHOTO]</div><h3>Émile Taraud</h3><p>Associé · [RÔLE]</p></div>
-      <div><div class="photo">[PHOTO]</div><h3>Paul Lemonnier</h3><p>Associé · [RÔLE]</p></div>
-      <div><div class="photo">[PHOTO]</div><h3>Lohan Dauzou</h3><p>Associé · [RÔLE]</p></div>
-    </div>
-  </div>
-</section>
+<section id="faq" class="faq"><div class="w">
+<span class="eyebrow">FAQ</span><h2>Questions fréquentes</h2>
+<details><summary>Pelion convient-il à mon secteur ?</summary><p>Oui. Les modules sont génériques et se paramètrent : vocabulaire, champs et statuts s'adaptent à votre activité.</p></details>
+<details><summary>Faut-il abandonner nos outils actuels ?</summary><p>Non. Pelion reprend vos données existantes et peut rester connecté à votre comptabilité et à vos outils de paie.</p></details>
+<details><summary>Quelle taille d'entreprise ?</summary><p>De quelques personnes à plusieurs centaines. Vous démarrez avec un service et vous étendez.</p></details>
+<details><summary>Combien de temps pour démarrer ?</summary><p>Comptez quelques semaines pour une équipe pilote. Le délai exact est confirmé après le cadrage.</p></details>
+</div></section>
 
-<!-- CTA -->
-<section class="cta-band">
-  <div class="cta-in">
-    <p>Prêts à démarrer ? Parlons de votre projet.</p>
-    <a class="btn dark" href="devis.html">DEMANDER UN DEVIS</a>
-  </div>
-</section>
+<section id="contact"><div class="w contact">
+<span class="eyebrow">Contact</span>
+<h2>Parlons de votre entreprise.</h2>
+<p class="sub">Laissez vos coordonnées. Nous revenons vers vous sous un jour ouvré pour échanger sur vos besoins.</p>
+<form id="qf" novalidate>
+<div class="two"><div><label class="lab" for="qn">Nom</label><input class="tx" id="qn" required autocomplete="name"></div><div><label class="lab" for="qc">Entreprise</label><input class="tx" id="qc" required autocomplete="organization"></div></div>
+<label class="lab" for="qe">Email professionnel</label><input class="tx" id="qe" type="email" required autocomplete="email">
+<label class="lab" for="qm">Message (facultatif)</label><textarea class="tx" id="qm" rows="4" placeholder="Votre activité, vos besoins"></textarea>
+<p class="err" id="qerr" hidden></p>
+<button class="btn" type="submit">Envoyer ma demande</button>
+</form>
+</div></section>
 </main>
 
-<footer class="foot">
-  <div class="foot-in">
-    <span class="logo"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path class="ac" d="M2 28 14 5l12 23z"/><path d="M14 5l12 23H14z" fill="#000" opacity=".22"/><path d="M18 28l7-14 6 14z" fill="#fff"/></svg>PELION</span>
-    <span>[ADRESSE EMAIL] · [TÉLÉPHONE] · [VILLE]</span>
-    <span>© <span id="y">2026</span> Pelion · <a href="mentions-legales.html">Mentions légales</a></span>
-  </div>
-</footer>
+<footer><div class="w"><span>© 2026 Pelion · maquette, contenus fictifs</span><span>Mentions légales · Confidentialité · contact@pelion.example</span></div></footer>
 
-<script src="script.js"></script>
+<script>
+const P={
+pr:`<h4>Projets en cours</h4>
+<div class="row"><div class="t">Refonte du site client<small>Équipe Marketing · échéance 14 nov.</small></div><span class="badge b-ok">Dans les temps</span></div>
+<div class="row"><div class="t">Migration du CRM<small>Équipe Systèmes · échéance 28 nov.</small></div><span class="badge b-warn">À surveiller</span></div>
+<div class="row"><div class="t">Ouverture du site de Nantes<small>Équipe Opérations · échéance 5 déc.</small></div><span class="badge b-ok">Dans les temps</span></div>
+<div class="row"><div class="t">Audit qualité annuel<small>Équipe Qualité · échéance 2 nov.</small></div><span class="badge b-bad">En retard</span></div>`,
+pl:`<h4>Charge de la semaine</h4>
+<div class="row"><div class="t">Équipe Marketing<small>6 personnes</small></div><div class="meter"><i style="width:85%"></i></div></div>
+<div class="row"><div class="t">Équipe Opérations<small>12 personnes</small></div><div class="meter"><i style="width:60%"></i></div></div>
+<div class="row"><div class="t">Équipe Systèmes<small>4 personnes</small></div><div class="meter"><i style="width:95%"></i></div></div>
+<div class="row"><div class="t">Équipe Support<small>8 personnes</small></div><div class="meter"><i style="width:40%"></i></div></div>`,
+re:`<h4>Ressources sous le seuil</h4>
+<div class="row"><div class="t">Ordinateurs portables · Lyon<small>3 en stock · seuil 8</small></div><span class="badge b-bad">Bas</span></div>
+<div class="row"><div class="t">Cartouches d'encre · Paris<small>6 en stock · seuil 10</small></div><span class="badge b-warn">À commander</span></div>
+<div class="row"><div class="t">Badges d'accès · Nantes<small>40 en stock · seuil 20</small></div><span class="badge b-ok">Suffisant</span></div>`,
+qu:`<h4>Qualité et conformité</h4>
+<div class="row"><div class="t">Certification ISO à renouveler<small>échéance dans 30 jours</small></div><span class="badge b-warn">Bientôt</span></div>
+<div class="row"><div class="t">Action corrective n°42<small>procédure d'accueil · ouverte depuis 9 jours</small></div><span class="badge b-warn">Non close</span></div>
+<div class="row"><div class="t">Formation sécurité incendie<small>12 personnes à planifier</small></div><span class="badge b-bad">Urgent</span></div>`,
+fi:`<h4>Ventes et clients</h4>
+<div class="row"><div class="t">Devis en attente de réponse<small>3 à relancer cette semaine</small></div><b>12</b></div>
+<div class="row"><div class="t">Commandes à produire<small>signées, à planifier</small></div><b>8</b></div>
+<div class="row"><div class="t">Clients à relancer<small>dossiers sans réponse depuis 15 jours</small></div><b>5</b></div>`};
+const pane=document.getElementById('pane'),tabs=document.getElementById('tabs');
+function show(k){pane.innerHTML=P[k];tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k))}
+tabs.addEventListener('click',e=>{if(e.target.dataset.k)show(e.target.dataset.k)});show('pr');
+const ks=Object.keys(P);let n=0,auto=setInterval(()=>show(ks[++n%ks.length]),4500);
+tabs.addEventListener('click',()=>clearInterval(auto));
+const $=id=>document.getElementById(id),nf=n=>Math.round(n).toLocaleString('fr-FR');
+/* Simulateur : heures/mois = personnes x h/semaine x 46 semaines / 12 mois x 25 % de gain */
+function calc(){const n=+$('a').value,h=+$('b').value;
+const hm=n*h*46/12*.25;
+$('av').textContent=nf(n);$('bv').textContent=h+' h';
+$('out').textContent=nf(hm)+' h';$('etp').textContent=(hm/151.67).toLocaleString('fr-FR',{maximumFractionDigits:1});$('eur').textContent=nf(hm*12)+' h'}
+['a','b'].forEach(i=>$(i).addEventListener('input',calc));calc();
+/* Contact : maquette, rien n'est envoyé */
+const qf=$('qf');
+qf.addEventListener('submit',e=>{e.preventDefault();const err=$('qerr');
+const miss=[['qn','votre nom'],['qc','votre entreprise'],['qe','un email professionnel valide']].filter(([i])=>!$(i).value.trim()||(i=='qe'&&!$(i).checkValidity()));
+if(miss.length){err.hidden=false;err.textContent='Il manque '+miss[0][1]+'.';$(miss[0][0]).focus();return}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+qf.outerHTML='<div class="ok" id="qf" tabindex="-1"><h3>Merci '+esc($('qn').value.trim())+'.</h3><p>Votre demande pour '+esc($('qc').value.trim())+' serait transmise à l\'équipe, qui répondrait à '+esc($('qe').value.trim())+' sous un jour ouvré.</p><p class="fine">Cette maquette n\'envoie rien : aucune donnée n\'a quitté cette page.</p></div>';
+$('qf').focus()});
+</script>
+
 </body>
 </html>
