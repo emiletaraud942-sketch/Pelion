@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       htmlContent: `<p><b>Nom :</b> ${esc(name)}<br><b>Entreprise :</b> ${esc(company)}<br><b>Email :</b> ${esc(email)}</p><p>${esc(message || '(pas de message)').replace(/\n/g, '<br>')}</p>`
     })
   }).catch(() => null);
-  if (r && !r.ok) { const t = (await r.text()).slice(0, 300); console.error('brevo', r.status, t); return res.status(502).json({ ok: false, error: 'send_failed', debug: r.status + ' ' + t }); }
+  if (r && !r.ok) { const t = (await r.text()).slice(0, 300); console.error('brevo', r.status, t); return res.status(502).json({ ok: false, error: 'send_failed' }); }
   if (!r) return res.status(502).json({ ok: false, error: 'send_failed' });
   res.status(200).json({ ok: true });
 };
