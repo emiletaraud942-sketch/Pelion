@@ -172,15 +172,15 @@ const hm=n*h*46/12*.25;
 $('av').textContent=nf(n);$('bv').textContent=h+' h';
 tw('out',hm,v=>nf(v)+' h');tw('etp',hm/151.67,v=>v.toLocaleString('fr-FR',{maximumFractionDigits:1}));tw('eur',hm*12,v=>nf(v)+' h')}
 ['a','b'].forEach(i=>$(i).addEventListener('input',calc));calc();
-/* Contact : envoi par email via FormSubmit */
-const qf=$('qf'),TO='emiletaraud942@gmail.com';
+/* Contact : envoi par email via /api/contact (Brevo) */
+const qf=$('qf');
 qf.addEventListener('submit',async e=>{e.preventDefault();const err=$('qerr'),btn=qf.querySelector('button[type=submit]');
 const miss=[['qn','votre nom'],['qc','votre entreprise'],['qe','un email professionnel valide']].filter(([i])=>!$(i).value.trim()||(i=='qe'&&!$(i).checkValidity()));
 if(miss.length){err.hidden=false;err.textContent='Il manque '+miss[0][1]+'.';$(miss[0][0]).focus();return}
 err.hidden=true;btn.disabled=true;btn.textContent='Envoi en cours…';
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-try{const r=await fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({Nom:$('qn').value.trim(),Entreprise:$('qc').value.trim(),Email:$('qe').value.trim(),Message:$('qm').value.trim(),_replyto:$('qe').value.trim(),_subject:'Nouvelle demande de contact Pelion',_template:'table',_honey:$('hp').value})});
-const j=await r.json().catch(()=>({}));if(!r.ok||j.success===false||j.success==='false')throw 0;
+try{const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('qn').value.trim(),company:$('qc').value.trim(),email:$('qe').value.trim(),message:$('qm').value.trim(),hp:$('hp').value})});
+if(!r.ok)throw 0;
 qf.outerHTML='<div class="ok" id="qf" tabindex="-1"><h3>Merci '+esc($('qn').value.trim())+'.</h3><p>Votre demande a bien été envoyée. Nous vous répondrons à '+esc($('qe').value.trim())+' dans les meilleurs délais.</p></div>';$('qf').focus()}
 catch(_){err.hidden=false;err.textContent="L'envoi a échoué. Réessayez dans un instant.";btn.disabled=false;btn.textContent='Envoyer ma demande'}});
 
